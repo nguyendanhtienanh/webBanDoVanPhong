@@ -76,7 +76,7 @@ const dataLocal = (function(){
     const keyLocalStorageListSP = "DANHSACHSP";
     const keyLocalStorageItemCart = "DANHSACHItemCart";
 
-    localStorage.setItem(keyLocalStorageListSP, JSON.stringify(listData) )
+    // localStorage.setItem(keyLocalStorageListSP, JSON.stringify(listData))
 
     return {
         getDataProduct() {
@@ -102,8 +102,73 @@ const dataLocal = (function(){
         setDataCart (value) {
             localStorage.setItem(keyLocalStorageItemCart, JSON.stringify(value))
         },
+        setDataProducts (value) {
+            localStorage.setItem(keyLocalStorageListSP, JSON.stringify(value))
+        },
         deleteDataCart () {
             localStorage.removeItem(keyLocalStorageItemCart)
+        }
+    }
+})()
+
+const provinceAPI = "https://provinces.open-api.vn/api/";
+
+const hanldAPI = (function() {
+    
+    return {
+        async getDataAPI(api) {
+            try {
+                let reponse = await fetch(api);
+                let data = await reponse.json();
+                return data
+            } catch (error) {
+                alert(error)
+            }
+        }
+    }
+})()
+
+const hanldApiOrder = (function() {
+
+    return {
+        async postOrder (data) {
+            try {
+                const reponse = await fetch("http://localhost:3000/listOrder", {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    body: JSON.stringify(data)
+                });
+                let order = reponse.json();
+                return order;
+            } catch (err) {
+                alert(err);
+            }
+        },
+        async deleteOrder (id) {
+            try {
+                const reponse = await fetch("http://localhost:3000/listOrder" + "/" + id, {
+                    method: 'DELETE',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer'
+                });
+                let order = reponse.json();
+                return order;
+            } catch (err) {
+                alert(err);
+            }
         }
     }
 })()

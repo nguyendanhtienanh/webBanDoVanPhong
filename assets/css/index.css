@@ -95,13 +95,14 @@
     transition: 0.2s;
 }
 
-.icon-cart {
+.icon-cart > a {
     color: #fff;
     position: absolute;
     left: 82%;
     top: 35%;
     font-size: 22px;
     transition: 0.2s;
+    text-decoration: none;
 }
 
 .icon-user {
@@ -113,7 +114,7 @@
     transition: 0.2s;
 }
 
-.icon-like:hover, .icon-cart:hover, .icon-user:hover {
+.icon-like:hover, .icon-cart > a:hover, .icon-user:hover {
     font-size: 28px;
     transition: 0.2s;
 }

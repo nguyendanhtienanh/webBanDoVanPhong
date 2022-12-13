@@ -29,8 +29,6 @@ function getListProducts() {
     document.querySelector(".row").innerHTML = listProducts;
 }
 
-getListProducts()
-
 function addProduct(id, quantity, max) {
     let dataCart = dataLocal.getDataCart();
 
@@ -84,10 +82,13 @@ function addToCart(id, quantity, max) {
 function quantityProductCart() {
     const dataCart = dataLocal.getDataCart();
     let quantityProductCart = 0;
-    dataCart.forEach((product) => {
-        quantityProductCart += product.quantity;
-        return quantityProductCart;
-    })
-
-    document.querySelector(".quantityProductCart").innerText = quantityProductCart
+    if(dataCart == null) {
+        document.querySelector(".quantityProductCart").innerText = "0"
+    } else {
+        dataCart.forEach((product) => {
+            quantityProductCart += product.quantity;
+            document.querySelector(".quantityProductCart").innerText = quantityProductCart
+        })
+    }
+    console.log(quantityProductCart)
 }

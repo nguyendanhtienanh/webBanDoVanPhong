@@ -4,13 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/product.css">
+    <link rel="stylesheet" href="./assets/css/cart.css">
     <link rel="stylesheet" href="./assets/icon/themify-icons/themify-icons.css">
-
 </head>
 
-<body onload="getListProducts(), quantityProductCart()">
-    <div id="product">
+<body onload="cart(), quantityProductCart()">
+    <div id="cart">
 
         <!-- Header -->
         <div id="header">
@@ -36,10 +35,8 @@
                 </li>
 
                 <li class="icon-cart">
-                    <a href="./cart.html">
-                        <i class="ti-shopping-cart"></i>
-                        <span class="quantityProductCart">0</span>
-                    </a>
+                    <i class="ti-shopping-cart"></i>
+                    <span class="quantityProductCart">0</span>
                 </li>
 
                 <li class="icon-user">
@@ -53,7 +50,7 @@
             <div class="head-menu-content">
                 <div class="head-menu-product">
                     <i class="ti-package"></i>
-                    <p>Sản phẩm</p>
+                    <a href="./product.html">Sản phẩm</a>
                 </div>
                 <div class="head-menu-product">
                     <i class="ti-gift"></i>
@@ -82,68 +79,96 @@
                     <li>
                         <a href="./index.html">Trang chủ</a>
                     </li>
-                    <li><span>Sản phẩm</span></li>
+                    <li><span>Giỏ hàng</span></li>
                 </ul>
                 <div class="main-content-bread-crumb">
-                    Sản phẩm
+                    Giỏ hàng
                 </div>
             </div>
         </div>
 
         <!-- Content -->
         <div id="content">
+            <div class="title-cart">
+                <p>Giỏ hàng của bạn</p>
+            </div>
 
-            <div class="sidebar-left">
-
-                <div class="sidebar-nav">
-                    <div class="side-title">
-                        <p>Thể loại sách</p>
-                        <i class="ti-angle-down"></i>
-                    </div>
-                    <ul class="side-content">
-                        <li>Bìa kẹp</li>
-                        <li>Bút</li>
-                        <li>Bút xóa</li>
-                        <li>Hộp</li>
-                        <li>Sổ tay</li>
-                        <li>Túi đựng</li>
-                        <li>Vở</li>
-                    </ul>
+            <div class="content-cart">
+                <div class="list-products">
+                    <i class="ti-shopping-cart-full icon-content-cart"></i>
+                    <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
                 </div>
 
-                <div class="sidebar-nav">
-                    <div class="side-title">
-                        <p>Nhà xuất bản</p>
-                        <i class="ti-angle-down"></i>
-                    </div>
-                    <ul class="side-content">
-                        <li>OEM</li>
-                    </ul>
-                </div>
+            </div>
 
-                <div class="sidebar-nav">
-                    <div class="side-title">
-                        <p>Sắp xếp theo giá</p>
-                        <i class="ti-angle-down"></i>
+            <!-- modal -->
+            <div class="modal">
+                <div class="form-buy">
+                    <div class="title-form-buy">
+                        <p>Thông tin người mua</p>
+                        <i class="ti-close" onclick="hanldBtnExitBuy()"></i>
                     </div>
-                    <ul class="side-content">
-                        <li>Tên A - Z</li>
-                        <li>Tên Z - A</li>
-                        <li>Giá thấp đến cao</li>
-                        <li>Giá cao đến thấp</li>   
-                    </ul>
-                </div>
 
-                <div class="sidebar-img">
-                    <img src="https://bizweb.dktcdn.net/100/434/558/themes/831317/assets/img_aside_banner.jpg?1651395726340" alt="sidebar-img">
+                    <div class="content-form-buy">
+
+                        <div class="form-buy-name">
+                            <label for="#">Họ và tên</label>
+                            <input type="text" class="name" placeholder="Họ và Tên" onclick="changeName()">
+                            <p class="warning warning-name">Nhập họ và tên của bạn!</p>
+                        </div>
+
+                        <div class="form-buy-email">
+                            <label for="#">Email</label>
+                            <input type="email" class="mail" placeholder="Email" onclick="changeMail()">
+                            <p class="warning warning-mail">Nhập email của bạn!</p>
+                        </div>
+
+                        <div class="form-buy-phone">
+                            <label for="#">Số điện thoại</label>
+                            <input type="tel" class="phone" placeholder="Số điện thoại" onclick="changePhone()">
+                            <p class="warning warning-phone">Nhập số điện thoại của bạn!</p>
+                        </div>
+
+                        <div class="form-buy-address">
+                            <label for="#">Địa chỉ</label>
+                            <div class="address-PDW">
+                                <div class="address-province">
+                                    <select class="province" onchange="getDistrictsByProvinceID(), changeProvinceDistrictWard()">
+                                        
+                                    </select>
+                                    <p class="warning warning-province">Chọn Tỉnh của bạn!</p>
+                                </div>
+                                <div class="address-district">
+                                    <select class="district" onchange="getWardsByDistrictsID(), changeProvinceDistrictWard()">
+                                        
+                                    </select>
+                                    <p class="warning warning-district">Chọn Huyện của bạn!</p>
+                                </div>
+                                <div class="address-ward">
+                                    <select class="ward" onchange="changeProvinceDistrictWard()">
+                                        
+                                    </select>
+                                    <p class="warning warning-ward">Chọn Xã của bạn!</p>
+                                </div>
+                            </div>
+                            <input type="text" class="address-detail" placeholder="Số nhà" onclick="changeAddress()">
+                            <p class="warning warning-address">Nhập địa chỉ của bạn!</p>
+                        </div>
+
+                        <div class="form-buy-note">
+                            <label for="">Lời nhắn</label>
+                            <textarea name="" id="" placeholder="Lời nhắn"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="btn-form-buy">
+                        <button class="btn-form-buy-exit" onclick="hanldBtnExitBuy()">Hủy</button>
+                        <button class="btn-form-buy-summit" onclick="confirmOrder()">Xác nhận</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="main-content">
-                <div class="row">
-                    
-                </div>
-            </div>
         </div>
 
         <!-- Footer -->
@@ -229,9 +254,14 @@
                 <p>@ Bản quyền thuộc về Awesome Team | Cung cấp bởi Sapo</p>
             </div>
         </div>
+
     </div>
 
     <script src="./assets/js/dataLocal.js"></script>
     <script src="./assets/js/product.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/formBuy.js"></script>
+    <script src="./assets/js/validate.js"></script>
+    <script src="./assets/js/handleOrder.js"></script>
 </body>
 </html>
