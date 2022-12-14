@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/icon/themify-icons/themify-icons.css">
 
-<body>
+<body onload="quantityOrder(), quantityProductCart()">
     <div id="app">
 
         <!-- Header -->
@@ -27,12 +27,18 @@
                     <span>Hotline: 19006750</span>
                 </li>
 
-                <li class="icon-like">
-                    <i class="ti-truck"></i>
+                <li class="icon-truck">
+                    <a href="./order.html">
+                        <i class="ti-truck"></i>
+                        <span class="quantityOrder">0</span>
+                    </a>
                 </li>
 
                 <li class="icon-cart">
-                    <a href="./cart.html"><i class="ti-shopping-cart"></i></a>
+                    <a href="./cart.html">
+                        <i class="ti-shopping-cart"></i>
+                        <span class="quantityProductCart">0</span>
+                    </a>
                 </li>
 
                 <li class="icon-user">
@@ -329,5 +335,7 @@
         </div>
 
     </div>
+    <script src="./assets/js/handleOrder.js"></script>
+    <script src="./assets/js/product.js"></script>
 </body>
 </html>

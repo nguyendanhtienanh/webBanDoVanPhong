@@ -86,13 +86,29 @@
     font-size: 20px;
 }
 
-.icon-like {
+.icon-truck > a {
     color: #fff;
     position: absolute;
     left: 78%;    
     top: 35%;
     font-size: 22px;
     transition: 0.2s;
+    text-decoration: none;
+}
+
+.icon-truck > a > span {
+    background: #FFD57E;
+    font-size: 13px;
+    color: #000;
+    display: inline-block;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 58%;
+    line-height: 16px;
 }
 
 .icon-cart > a {
@@ -105,6 +121,21 @@
     text-decoration: none;
 }
 
+.icon-cart > a > span {
+    background: #FFD57E;
+    font-size: 13px;
+    color: #000;
+    display: inline-block;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    position: absolute;
+    top: 46%;
+    left: 44%;
+    line-height: 16px;
+}
+
 .icon-user {
     color: #fff;
     position: absolute;
@@ -114,7 +145,7 @@
     transition: 0.2s;
 }
 
-.icon-like:hover, .icon-cart > a:hover, .icon-user:hover {
+.icon-truck > a:hover, .icon-user:hover, .icon-cart > a:hover{
     font-size: 28px;
     transition: 0.2s;
 }

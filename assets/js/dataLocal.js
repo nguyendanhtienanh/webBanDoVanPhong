@@ -169,6 +169,15 @@ const hanldApiOrder = (function() {
             } catch (err) {
                 alert(err);
             }
+        },
+        async getOrderDataAPI() {
+            try {
+                let reponse = await fetch("http://localhost:3000/listOrder");
+                let data = await reponse.json();
+                return data
+            } catch (error) {
+                alert(error)
+            }
         }
     }
 })()

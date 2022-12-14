@@ -90,5 +90,4 @@ function quantityProductCart() {
             document.querySelector(".quantityProductCart").innerText = quantityProductCart
         })
     }
-    console.log(quantityProductCart)
 }

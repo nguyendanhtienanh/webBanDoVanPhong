@@ -4,14 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/product.css">
+    <link rel="stylesheet" href="./assets/css/order.css">
     <link rel="stylesheet" href="./assets/icon/themify-icons/themify-icons.css">
-
 </head>
-
-<body onload="getListProducts(), quantityProductCart()">
-    <div id="product">
-
+<body onload="renderListOrder()">
+    <div id="order">
+        
         <!-- Header -->
         <div id="header">
             <ul class="content-header">
@@ -56,7 +54,7 @@
             <div class="head-menu-content">
                 <div class="head-menu-product">
                     <i class="ti-package"></i>
-                    <p>Sản phẩm</p>
+                    <a href="./product.html">Sản phẩm</a>
                 </div>
                 <div class="head-menu-product">
                     <i class="ti-gift"></i>
@@ -85,10 +83,10 @@
                     <li>
                         <a href="./index.html">Trang chủ</a>
                     </li>
-                    <li><span>Sản phẩm</span></li>
+                    <li><span>Đơn hàng</span></li>
                 </ul>
                 <div class="main-content-bread-crumb">
-                    Sản phẩm
+                    Đơn hàng
                 </div>
             </div>
         </div>
@@ -96,56 +94,16 @@
         <!-- Content -->
         <div id="content">
 
-            <div class="sidebar-left">
-
-                <div class="sidebar-nav">
-                    <div class="side-title">
-                        <p>Thể loại sách</p>
-                        <i class="ti-angle-down"></i>
-                    </div>
-                    <ul class="side-content">
-                        <li>Bìa kẹp</li>
-                        <li>Bút</li>
-                        <li>Bút xóa</li>
-                        <li>Hộp</li>
-                        <li>Sổ tay</li>
-                        <li>Túi đựng</li>
-                        <li>Vở</li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-nav">
-                    <div class="side-title">
-                        <p>Nhà xuất bản</p>
-                        <i class="ti-angle-down"></i>
-                    </div>
-                    <ul class="side-content">
-                        <li>OEM</li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-nav">
-                    <div class="side-title">
-                        <p>Sắp xếp theo giá</p>
-                        <i class="ti-angle-down"></i>
-                    </div>
-                    <ul class="side-content">
-                        <li>Tên A - Z</li>
-                        <li>Tên Z - A</li>
-                        <li>Giá thấp đến cao</li>
-                        <li>Giá cao đến thấp</li>   
-                    </ul>
-                </div>
-
-                <div class="sidebar-img">
-                    <img src="https://bizweb.dktcdn.net/100/434/558/themes/831317/assets/img_aside_banner.jpg?1651395726340" alt="sidebar-img">
-                </div>
+            <div class="title-order">
+                <p>Danh sách đơn hàng</p>
             </div>
-
-            <div class="main-content">
-                <div class="row">
-                    
+            
+            <div class="content-order">
+                <div class="list-order">
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/5fafbb923393b712b96488590b8f781f.png" alt="img-order">
+                    <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
                 </div>
+
             </div>
         </div>
 
@@ -232,10 +190,15 @@
                 <p>@ Bản quyền thuộc về Awesome Team | Cung cấp bởi Sapo</p>
             </div>
         </div>
+
     </div>
 
     <script src="./assets/js/dataLocal.js"></script>
     <script src="./assets/js/product.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/formBuy.js"></script>
+    <script src="./assets/js/validate.js"></script>
     <script src="./assets/js/handleOrder.js"></script>
+    <script src="./assets/js/showListOrder.js"></script>
 </body>
 </html>

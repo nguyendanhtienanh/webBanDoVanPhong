@@ -141,7 +141,7 @@ function showProductToCart() {
 
 function cart() {
     const dataCart = dataLocal.getDataCart();
-    if(dataCart == null) {
+    if(dataCart == null || dataCart.length == 0) {
         return;
     } else {
         showProductToCart();

@@ -110,6 +110,14 @@ function updateListProduct() {
     dataLocal.setDataProducts(dataProducts)
 }
 
+const quantityOrder = async () => {
+    const dataListOrder = await hanldApiOrder.getOrderDataAPI();
+    let quantityOrder = dataListOrder.length
+    if(dataListOrder.length == 0) {
+        document.querySelector(".quantityOrder").innerText = "0"
+    } else document.querySelector(".quantityOrder").innerText = quantityOrder;
+}
+
 function getInfoOrder() {
     const infoUserOrder = getInfoUserOrder();
     const infoProduct = getInfoProduct();
