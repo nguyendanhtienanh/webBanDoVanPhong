@@ -141,8 +141,14 @@ function showProductToCart() {
 
 function cart() {
     const dataCart = dataLocal.getDataCart();
+    const backgroundCartBlock = document.querySelector(".list-products")
+    const backgroundCart = `
+        <i class="ti-shopping-cart-full icon-content-cart"></i>
+        <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
+        <a href="./product.html">Mua thêm sản phẩm</a>
+    `
     if(dataCart == null || dataCart.length == 0) {
-        return;
+        backgroundCartBlock.innerHTML = backgroundCart;
     } else {
         showProductToCart();
     }

@@ -192,8 +192,8 @@
     margin-right: 10px;
 }
 
-.head-menu-product:hover > i {
-    font-size: 24px;
+.head-menu-product:hover > a {
+    background-color:#d9d3d3;
 }
 
 /* Bread crumb */
@@ -250,7 +250,7 @@
 #content {
     width: 1150px;
     margin: auto;
-    min-height: 300px;
+    min-height: 350px;
     margin-top: 28px;
 }
 
@@ -264,7 +264,7 @@
 .content-order {
     text-align: center;
     padding-bottom: 6.5px;
-    padding-top: 21.5px;
+    padding-top: 10px;
 }
 
 .list-order {
@@ -421,6 +421,25 @@
 
 .title-details .icon-detail {
     font-size: 12px;
+}
+
+.list-order > a {
+    text-decoration: none;
+    color: red;
+    border: 1px solid red;
+    font-weight: normal;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+    float: left;
+    margin-top: 50px;
+}
+
+.list-order > a:hover {
+    border: 1px solid black;
+    background-color: rgba(0,0,0,.8);
+    color: #fff;
 }
 
 

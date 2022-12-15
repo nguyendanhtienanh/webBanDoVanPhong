@@ -63,17 +63,38 @@ const renderListOrder = async () => {
 }
 
 const btnDeleteOrder = async (id) => {
-    const dataListOrder = await hanldApiOrder.getOrderDataAPI();
-    const dataProducts = dataLocal.getDataProduct();
-    dataListOrder.map((order) => {
-        order.product.map((productOrder) => {
-            dataProducts.map((product) => {
-                if(productOrder.nameProduct === product.name) {
-                    product.quantity = product.quantity + productOrder.quantity
-                }
+    const checkDeleteOrder = confirm("Xác nhận xóa đơn hàng?")
+    if(checkDeleteOrder == true) {
+        const dataListOrder = await hanldApiOrder.getOrderDataAPI();
+        const dataProducts = dataLocal.getDataProduct();
+        dataListOrder.map((order) => {
+            order.product.map((productOrder) => {
+                dataProducts.map((product) => {
+                    if(productOrder.nameProduct === product.name) {
+                        product.quantity = product.quantity + productOrder.quantity
+                    }
+                })
             })
         })
-    })
-    dataLocal.setDataProducts(dataProducts);
-    hanldApiOrder.deleteOrder(id)
+        dataLocal.setDataProducts(dataProducts);
+        hanldApiOrder.deleteOrder(id)
+    } else {
+        return;
+    }
 }
+
+const showListOrder = async () => {
+    const dataListOrder = await hanldApiOrder.getOrderDataAPI();
+    const backgroundBlock = document.querySelector(".list-order")
+    const backgroundOrder = `
+        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/5fafbb923393b712b96488590b8f781f.png" alt="img-order">
+        <p>Không có đơn hàng nào</p>
+        <a href="./product.html">Mua thêm sản phẩm</a>
+    `
+    if(dataListOrder.length == 0) {
+        backgroundBlock.innerHTML = backgroundOrder;
+    } else {
+        renderListOrder();
+    }
+}
+

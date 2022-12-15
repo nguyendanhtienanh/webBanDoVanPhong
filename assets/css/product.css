@@ -196,8 +196,8 @@
     margin-right: 10px;
 }
 
-.head-menu-product:hover > i {
-    font-size: 24px;
+.head-menu-product:hover > a {
+    background-color:#d9d3d3;
 }
 
 /* Bread crumb */
@@ -338,12 +338,14 @@
     display: inline-block;
     margin: 10px 5px;
     background-color:#eae2e2f8;
+    transition: 0.6s;
     
 }
 
 .product-item:hover {
     transform: scale(1.05);
     border: 1px solid black;
+    transition: 0.6s;
 }
 
 .product-img > img {

@@ -191,8 +191,8 @@
     margin-right: 10px;
 }
 
-.head-menu-product:hover > i {
-    font-size: 24px;
+.head-menu-product:hover > a {
+    background-color:#d9d3d3;
 }
 
 
