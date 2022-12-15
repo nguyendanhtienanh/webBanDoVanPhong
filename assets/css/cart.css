@@ -486,9 +486,12 @@
     border: 1px #d9d9d9 solid;
     background-color: #fff;
     color: #333;
-    width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.form-buy-note > textarea {
+    resize: none;
 }
 
 .address-PDW {

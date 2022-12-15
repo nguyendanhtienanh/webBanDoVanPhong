@@ -1,4 +1,3 @@
-
 function getListProductById() {
     const dataProducts = dataLocal.getDataProduct();
     const dataCart = dataLocal.getDataCart();
