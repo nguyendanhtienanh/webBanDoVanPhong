@@ -486,6 +486,7 @@
     border: 1px #d9d9d9 solid;
     background-color: #fff;
     color: #333;
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -664,6 +665,23 @@
     font-size: 13px;
     padding: 20px;
     text-align: center;
+}
+
+/* Alert */
+.quick-alert {
+    width: 250px;
+    height: 70px;
+    display: none;
+    align-items: center;
+    position: fixed;
+    top: 10%;
+    right: 1.1%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.quick-alert>p {
+    margin-left: 20px;
 }
 
 

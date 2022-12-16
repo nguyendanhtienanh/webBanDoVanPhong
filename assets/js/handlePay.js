@@ -126,5 +126,6 @@ function getInfoOrder() {
 function confirmOrder() {
     if(validate() == true) {
         getInfoOrder();
+        notification("Đặt hàng thành công");
     } else return;
 }

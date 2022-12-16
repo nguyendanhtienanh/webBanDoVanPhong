@@ -60,6 +60,7 @@ function btnDeleteItem(id) {
     `
     if (check) {
         if(newData.length === 0) {
+            notification("Đã xóa sản phẩm")
             dataLocal.deleteDataCart();
             document.querySelector(".list-products").innerHTML = html
         }

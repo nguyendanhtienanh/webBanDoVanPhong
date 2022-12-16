@@ -19,23 +19,23 @@ function addProduct(id, quantity, max) {
     if (quantityTotal != 0) {
         if (!checkId) {
             dataCart.push(new CartObject(id, quantity));
-            alert("Đã thêm sản phẩm vào giỏ hàng!");
+            notification("Đã thêm sản phẩm vào giỏ");
         }
         else {
             dataCart.map((product) => {
                 if (product.id === id && product.quantity < max) {
                     const quantityProduct = product.quantity += 1;
-                    alert("Đã thêm sản phẩm vào giỏ hàng!");
+                    notification("Đã thêm sản phẩm vào giỏ");
                     return (quantityProduct)
                 }
                 if (product.id === id && product.quantity == max) {
-                    alert("Sản phẩm đã hết hàng!")
+                    warningNotification("Sản phẩm đã hết hàng")
                 }
             })
         }
     }
     else {
-        alert("Sản phẩm đã hết hàng!")
+        warningNotification("Sản phẩm đã hết hàng")
     }
 
     dataLocal.setDataCart(dataCart);

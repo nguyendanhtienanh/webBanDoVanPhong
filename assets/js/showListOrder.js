@@ -71,7 +71,7 @@ const btnDeleteOrder = async (id) => {
             order.product.map((productOrder) => {
                 dataProducts.map((product) => {
                     if(productOrder.nameProduct === product.name) {
-                        product.quantity = product.quantity + productOrder.quantity
+                        product.quantity += productOrder.quantity
                     }
                 })
             })
