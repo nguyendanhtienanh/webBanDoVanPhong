@@ -1,6 +1,6 @@
 function CartObject(idCart, quantityCart) {
     this.id = idCart,
-        this.quantity = quantityCart
+    this.quantity = quantityCart
 }
 
 function addProduct(id, quantity, max) {

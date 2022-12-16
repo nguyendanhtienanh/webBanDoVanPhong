@@ -1,5 +1,5 @@
 
-function infoUser (id, name, time, address, quantity, price) {
+function InfoUser (id, name, time, address, quantity, price) {
     this.id = id,
     this.nameUser = name, 
     this.time = time,
@@ -8,7 +8,7 @@ function infoUser (id, name, time, address, quantity, price) {
     this.totalPrice = price
 }
 
-function productUser (img, nameProduct, price, quantity, total) {
+function InfoProductUser (img, nameProduct, price, quantity, total) {
     this.img = img,
     this.nameProduct = nameProduct,
     this.price = price,
@@ -69,7 +69,7 @@ function getInfoUserOrder() {
 
     let addressUser = `${address}, ${ward}, ${district}, ${province}`
 
-    let info = new infoUser(id, nameUser, time, addressUser, totalQuantity, totalPrice)
+    let info = new InfoUser(id, nameUser, time, addressUser, totalQuantity, totalPrice)
     console.log(info)
     return info;
 }
@@ -87,7 +87,7 @@ function getInfoProduct() {
                 const quantity = productCart.quantity
                 const total = product.price * productCart.quantity
                 infoProduct.push(
-                    new productUser(img, nameProduct, price, quantity, total)
+                    new InfoProductUser(img, nameProduct, price, quantity, total)
                 )
             }
         })

@@ -24,7 +24,7 @@ function getListProductById() {
     return listProducts
 }
 
-function handlTotal() {
+function handlTotalProduct() {
     const listProducts = getListProductById();
     let total = [];
     listProducts.map((product) => {
@@ -135,7 +135,7 @@ function showProductToCart() {
                 </ul>
             `
     })
-    showProduct = showProduct + handlTotal();
+    showProduct = showProduct + handlTotalProduct();
     document.querySelector(".list-products").innerHTML = showProduct;
 }
 
