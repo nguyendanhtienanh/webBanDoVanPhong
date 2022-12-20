@@ -120,12 +120,12 @@ function getInfoOrder() {
         hanldApiOrder.postOrder(infoOrder);
         updateListProduct();
         dataLocal.deleteDataCart();
+        notification("Đặt hàng thành công");
     }
 }
 
 function confirmOrder() {
     if(validate() == true) {
         getInfoOrder();
-        notification("Đặt hàng thành công");
     } else return;
 }

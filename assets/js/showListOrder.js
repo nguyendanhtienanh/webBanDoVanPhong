@@ -78,6 +78,7 @@ const btnDeleteOrder = async (id) => {
         })
         dataLocal.setDataProducts(dataProducts);
         hanldApiOrder.deleteOrder(id)
+        notification("Xóa đơn hàng thành công")
     } else {
         return;
     }

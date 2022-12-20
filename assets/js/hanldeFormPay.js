@@ -1,10 +1,34 @@
-
-function hanldBtnBuy() {
-    document.querySelector(".modal").classList.add("open");
-    getDataProvince();
+function showFormPay() {
+    document.querySelector(".modal").classList.add("open")
 }
 
 function hanldBtnExitBuy() {
+    const name = document.querySelector(".name");
+    const mail = document.querySelector(".mail");
+    const phone = document.querySelector(".phone");
+    const address = document.querySelector(".address-detail");
+    let province = document.querySelector(".province");
+    let district = document.querySelector(".district");
+    let ward = document.querySelector(".ward");
+    const note = document.querySelector(".note");
+    
+    name.value = "";
+    mail.value = "";
+    phone.value = "";
+    address.value = "";
+    province.value = "";
+    district.value = "";
+    ward.value = "";
+
+    document.querySelector(".warning-name").classList.remove("open");
+    document.querySelector(".warning-mail").classList.remove("open");
+    document.querySelector(".warning-phone").classList.remove("open");
+    document.querySelector(".warning-address").classList.remove("open");
+    document.querySelector(".warning-province").classList.remove("open");
+    document.querySelector(".warning-district").classList.remove("open");
+    document.querySelector(".warning-ward").classList.remove("open");
+    document.querySelector(".note").classList.remove("open");
+
     document.querySelector(".modal").classList.remove("open")
 }
 

@@ -473,6 +473,7 @@
     padding: 10px;
     border-bottom: 1px solid #e5e5e5;
     font-size: 15px;
+    text-align: left;
 }
 
 .form-buy-name, .form-buy-email, .form-buy-phone, .form-buy-note {
@@ -490,6 +491,17 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.form-buy-name > label::after,
+.form-buy-email > label::after,
+.form-buy-address > label::after,
+.form-buy-phone > label::after {
+    content: " * ";
+    font-size: 14px;
+    color: red;
+    font-weight: 600;
+}
+
 
 .form-buy-note > textarea {
     resize: none;
@@ -544,6 +556,7 @@
     color: red;
     display: none;
     margin-bottom: 10px;
+    font-weight: normal;
 }
 
 

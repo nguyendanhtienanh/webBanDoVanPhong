@@ -44,7 +44,7 @@ function handlTotalProduct() {
                 <h4>Tổng tiền:</h4>
                 <p>${totalPrice} đ</p>
             </div>
-            <button class="btn-pay" onclick="hanldBtnBuy()">Thanh toán</button>
+            <button class="btn-pay" onclick="showFormPay()">Thanh toán</button>
         </div>
     `
     return showTotal;
@@ -54,19 +54,16 @@ function btnDeleteItem(id) {
     const check = confirm("Xóa sản phẩm khỏi giỏ hàng?");
     const dataCart = dataLocal.getDataCart()
     let newData = dataCart.filter(product => product.id !== id)
-    const html = `
-        <i class="ti-shopping-cart-full icon-content-cart"></i>
-        <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
-    `
     if (check) {
         if(newData.length === 0) {
-            notification("Đã xóa sản phẩm")
             dataLocal.deleteDataCart();
-            document.querySelector(".list-products").innerHTML = html
+            cart();
+            notification("Đã xóa sản phẩm")
         }
         else {
             dataLocal.setDataCart(newData)
             cart();
+            notification("Đã xóa sản phẩm")
         }
     }
     quantityProductCart()
@@ -78,6 +75,7 @@ function btnUpItem(id, max) {
         if (product.id === id && product.quantity < max) {
             product.quantity += 1;
             dataLocal.setDataCart(dataCart)
+            notification("Đã tăng số lượng sản phẩm")
         }
         else if (product.id === id && product.quantity >= max) {
             dataLocal.setDataCart(dataCart)
@@ -95,10 +93,84 @@ function btnDownItem(id) {
         if (product.id === id && product.quantity > 1) {
             product.quantity -= 1;
             dataLocal.setDataCart(dataCart)
+            notification("Đã giảm số lượng sản phẩm")
         }
     })
     quantityProductCart()
     showProductToCart();
+}
+
+function FormPay() {
+    const formPay = `
+        <div class="modal">
+            <div class="form-buy">
+                
+                <div class="title-form-buy">
+                    <p>Thông tin người mua</p>
+                    <i class="ti-close" onclick="hanldBtnExitBuy()"></i>
+                </div>
+
+                <div class="content-form-buy">
+
+                    <div class="form-buy-name">
+                        <label for="#">Họ và tên</label>
+                        <input type="text" class="name" placeholder="Họ và Tên" onclick="changeName()">
+                        <p class="warning warning-name">Nhập họ và tên của bạn!</p>
+                    </div>
+
+                    <div class="form-buy-email">
+                        <label for="#">Email</label>
+                        <input type="email" class="mail" placeholder="Email" onclick="changeMail()">
+                        <p class="warning warning-mail">Nhập email của bạn!</p>
+                    </div>
+
+                    <div class="form-buy-phone">
+                        <label for="#">Số điện thoại</label>
+                        <input type="tel" class="phone" placeholder="Số điện thoại" onclick="changePhone()">
+                        <p class="warning warning-phone">Nhập số điện thoại của bạn!</p>
+                    </div>
+
+                    <div class="form-buy-address">
+                        <label for="#">Địa chỉ</label>
+                        <div class="address-PDW">
+                            <div class="address-province">
+                                <select class="province" onchange="getDistrictsByProvinceID(), changeProvinceDistrictWard()">
+                                    
+                                </select>
+                                <p class="warning warning-province">Chọn Tỉnh của bạn!</p>
+                            </div>
+                            <div class="address-district">
+                                <select class="district" onchange="getWardsByDistrictsID(), changeProvinceDistrictWard()">
+                                    
+                                </select>
+                                <p class="warning warning-district">Chọn Huyện của bạn!</p>
+                            </div>
+                            <div class="address-ward">
+                                <select class="ward" onchange="changeProvinceDistrictWard()">
+                                    
+                                </select>
+                                <p class="warning warning-ward">Chọn Xã của bạn!</p>
+                            </div>
+                        </div>
+                        <input type="text" class="address-detail" placeholder="Số nhà" onclick="changeAddress()">
+                        <p class="warning warning-address">Nhập địa chỉ của bạn!</p>
+                    </div>
+
+                    <div class="form-buy-note">
+                        <label for="">Lời nhắn</label>
+                        <textarea name="" id="" placeholder="Lời nhắn" class="note"></textarea>
+                    </div>
+
+                    <div class="btn-form-buy">
+                        <button class="btn-form-buy-exit" onclick="hanldBtnExitBuy()">Hủy</button>
+                        <button class="btn-form-buy-summit" onclick="confirmOrder()">Xác nhận</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    `
+    return formPay;
 }
 
 function showProductToCart() {
@@ -135,7 +207,7 @@ function showProductToCart() {
                 </ul>
             `
     })
-    showProduct = showProduct + handlTotalProduct();
+    showProduct = showProduct + FormPay() + handlTotalProduct();
     document.querySelector(".list-products").innerHTML = showProduct;
 }
 
