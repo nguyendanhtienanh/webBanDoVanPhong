@@ -1,12 +1,12 @@
 function CartObject(idCart, quantityCart) {
     this.id = idCart,
-    this.quantity = quantityCart
+        this.quantity = quantityCart
 }
 
 function addProduct(id, quantity, max) {
     let dataCart = dataLocal.getDataCart();
 
-    let quantityTotal
+    let quantityTotal;
     const dataProducts = dataLocal.getDataProduct();
     dataProducts.find((product) => {
         if (product.id === id) {
@@ -16,12 +16,11 @@ function addProduct(id, quantity, max) {
 
     const checkId = dataCart.find((product) => product.id === id)
 
-    if (quantityTotal != 0) {
-        if (!checkId) {
+    if (quantityTotal !== 0) {
+        if (!checkId) { //falsty
             dataCart.push(new CartObject(id, quantity));
             notification("Đã thêm sản phẩm vào giỏ");
-        }
-        else {
+        } else {
             dataCart.map((product) => {
                 if (product.id === id && product.quantity < max) {
                     const quantityProduct = product.quantity += 1;
@@ -33,8 +32,7 @@ function addProduct(id, quantity, max) {
                 }
             })
         }
-    }
-    else {
+    } else {
         warningNotification("Sản phẩm đã hết hàng")
     }
 
@@ -44,11 +42,8 @@ function addProduct(id, quantity, max) {
 
 function addToCart(id, quantity, max) {
     const dataCart = dataLocal.getDataCart();
-    if(dataCart == null) {
+    if (dataCart == null) { //falsty []
         dataLocal.setDataCart([]);
-        addProduct(id, quantity, max);
     }
-    else {
-        addProduct(id, quantity, max);
-    }
+    addProduct(id, quantity, max); //pure-function and side-effect
 }
